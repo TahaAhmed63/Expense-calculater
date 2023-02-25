@@ -1,5 +1,9 @@
 import React,{useState} from 'react'
 import "./style.css"
+
+
+
+
 export default function Expense() {
 
 const[expenses,setExpenses]=useState([]);
@@ -7,14 +11,14 @@ const[total,setTotal]=useState(0)
 
 
 
-function handleAddExpense(event){
+const handleAddExpense = (event) => {
   event.preventDefault();
-const name=event.target.name.value;
-const amount=parseInt(event.target.amount.value);
-setExpenses([...expenses,{name,amount}])
-setTotal(total+amount)
-event.target.reset()
-}
+  const name = event.target.elements.name.value;
+  const amount = parseInt(event.target.elements.amount.value);
+  setExpenses([...expenses, { name, amount }]);
+  setTotal(total + amount);
+  event.target.reset();
+};
 
   const handleRemoveExpense = (index) => {
     const amount = expenses[index].amount;
@@ -34,13 +38,13 @@ event.target.reset()
         <div className="col-md-6">
  
       <label for="">Expense</label>
-      <input type="text" name="name" id="" className="form-control" placeholder="" aria-describedby="helpId" required/>
+      <input type="text" name="name" id="" className="form-control" placeholder="" aria-describedby="helpId" required />
       </div>
     
         <div className="col-md-6">
  
       <label for="">Price</label>
-      <input type="text" name="amount" id="" className="form-control" placeholder="" aria-describedby="helpId" required/>
+      <input type="text" name="amount" id="" className="form-control" placeholder="" aria-describedby="helpId" required />
       </div>
      </div>
 
