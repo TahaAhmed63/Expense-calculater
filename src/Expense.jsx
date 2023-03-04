@@ -84,7 +84,7 @@ setExpenses([...expenses,{name,amount}]);
       ))}
     </tbody>
   </table>
-  <p>Total Expenses: {total}</p>
+  <p>Total Expenses: {`$`} {total}</p>
   
 </div>
 
