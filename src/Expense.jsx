@@ -18,11 +18,17 @@ const handleAddExpense = (event) => {
 
   const amount = parseInt(event.target.elements.amount.value);
 
-(isNaN(amount)) ?
+if(isNaN(amount)){
+
 amount = ""
 
 
-:
+}
+if (!isNaN(name)) {
+name=""
+  return;
+}
+
 
 setExpenses([...expenses,{name,amount}]);
   setTotal(total+amount);
