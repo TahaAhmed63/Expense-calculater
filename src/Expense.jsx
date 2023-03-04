@@ -10,20 +10,31 @@ const[expenses,setExpenses]=useState([]);
 const[total,setTotal]=useState(0)
 
 
-
 const handleAddExpense = (event) => {
-  event.preventDefault();
-  const name = event.target.elements.name.value;
-  const amount = parseInt(event.target.elements.amount.value);
-  setExpenses([...expenses, { name, amount }]);
-  setTotal(total + amount);
-  event.target.reset();
-};
 
+
+    event.preventDefault();
+  const name = event.target.elements.name.value;
+
+  const amount = parseInt(event.target.elements.amount.value);
+
+(isNaN(amount)) ?
+amount = ""
+
+
+:
+
+setExpenses([...expenses,{name,amount}]);
+  setTotal(total+amount);
+
+  event.target.reset();
+
+
+}
   const handleRemoveExpense = (index) => {
     const amount = expenses[index].amount;
-    setExpenses(expenses.filter((_, i) => i !== index));
-    setTotal(total - amount);
+    setExpenses(expenses.filter((_, i)=>i!==index));
+    setTotal(total-amount);
   };
 
   return (
